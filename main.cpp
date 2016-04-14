@@ -11,14 +11,14 @@ int main(int argc, char const *argv[]){
         cout << endl << "-------------------------------------------------------" << endl;
         cout << "\t MENU DE OPÇÕES/VISUALIZAÇÕES" << endl;
         cout << "-------------------------------------------------------" << endl;
-        cout << " 1 -- VISUALIZAR MATRIZ DE ADJACÊNCIA " << endl;
-        cout << " 2 -- VISUALIZAR MATRIZ DIAGONAL " << endl;
-        cout << " 3 -- VISUALIZAR MATRIZ DE INCIDÊNCIA " << endl;
-        cout << " 4 -- VISUALIZAR MATRIZ LAPLACIANA " << endl;
-        cout << " 5 -- VISUALIZAR O GRAU DE UM VÉRTICE " << endl;
-        cout << " 6 -- VISUALIZAR VIZINHANÇA DE UM VÉRTICE " << endl;
-        cout << " 7 -- VISUALIZAR TODAS AS POSSIBILIDADE DE ARESTAS " << endl;
-        cout << " 8 -- LER ARQUIVO " << endl;
+        cout << " 1 -- VISUALIZAR ARQUIVO " << endl;
+        cout << " 2 -- VISUALIZAR MATRIZ DE ADJACÊNCIA " << endl;
+        cout << " 3 -- VISUALIZAR MATRIZ DIAGONAL " << endl;
+        cout << " 4 -- VISUALIZAR MATRIZ DE INCIDÊNCIA " << endl;
+        cout << " 5 -- VISUALIZAR MATRIZ LAPLACIANA " << endl;
+        cout << " 6 -- VISUALIZAR O GRAU DE UM VÉRTICE " << endl;
+        cout << " 7 -- VISUALIZAR VIZINHANÇA DE UM VÉRTICE " << endl;
+        cout << " 8 -- VISUALIZAR TODAS AS POSSIBILIDADE DE ARESTAS " << endl;
         cout << " 0 -- SAIR " << endl;
         cout << "-------------------------------------------------------" << endl;
         cout << "OPÇÃO: ";
@@ -26,7 +26,12 @@ int main(int argc, char const *argv[]){
         cin >> op;
 
         switch(op){
+
             case 1:
+                grafos->arquivos();
+                break;
+
+            case 2:
                 cout << endl << "-------------------------------------------------------" << endl;
                 cout << "\t MAATRIZ DE ADJACÊNCIA" << endl;
                 cout << "-------------------------------------------------------" << endl;
@@ -35,7 +40,8 @@ int main(int argc, char const *argv[]){
                 else
                     //grafos->mostrarAdjacencia(nVertice);
                 break;
-            case 2:
+
+            case 3:
                 cout << endl << "-------------------------------------------------------" << endl;
                 cout << "\t MAATRIZ DIAGONAL" << endl;
                 cout << "-------------------------------------------------------" << endl;
@@ -44,7 +50,8 @@ int main(int argc, char const *argv[]){
                 else
                     //grafos->mostrarDiagonal(nVertice);
                 break;
-            case 3:
+
+            case 4:
                 cout << endl << "-------------------------------------------------------" << endl;
                 cout << "\t MAATRIZ DE INCIDÊNCIA" << endl;
                 cout << "-------------------------------------------------------" << endl;
@@ -53,7 +60,8 @@ int main(int argc, char const *argv[]){
                 else
                     //grafos->mostrarIncidencia(nVertice, mArestas);
                 break;
-            case 4:
+
+            case 5:
                 cout << endl << "-------------------------------------------------------" << endl;
                 cout << "\t MAATRIZ LAPLACIANA" << endl;
                 cout << "-------------------------------------------------------" << endl;
@@ -62,7 +70,8 @@ int main(int argc, char const *argv[]){
                 else
                    //grafos->mostrarLaplaciana(nVertice);
                 break;
-            case 5:
+
+            case 6:
                 cout << endl << "-------------------------------------------------------" << endl;
                 cout << "\t GRAU DE VÉRTICE" << endl;
                 cout << "-------------------------------------------------------" << endl;
@@ -73,7 +82,8 @@ int main(int argc, char const *argv[]){
                 else
                     //grafos->grauVertice(nVertice, vertice);
                 break;
-            case 6:
+
+            case 7:
                 cout << endl << "-------------------------------------------------------" << endl;
                 cout << "\t VIZINHANÇA DE VÉRTICE" << endl;
                 cout << "-------------------------------------------------------" << endl;
@@ -83,14 +93,8 @@ int main(int argc, char const *argv[]){
                     cout << "O VALOR ULTRAPASSA O NÚMERO DE VÉRTICES!" << endl;
                 else
                     //grafos->vizinhancaVertice(nVertice, vertice);
-                break;
-            case 7:
-                //grafos->mostrarArestas(origem, destino, nVertice, mArestas);
-                break;
-            case 8:
-                grafos->arquivos();
-                //grafos->arquivos2();
-                break;
+                break;                
+
             case 0:
                 cout << "\t PROGRAMA ENCERRADO COM SUCESSO!\n \t VOLTE EM BREVE!" << endl;
                 break;
