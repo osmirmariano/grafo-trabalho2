@@ -4,7 +4,7 @@
 using namespace std;
 
 int main(int argc, char const *argv[]){
-    int op, origem, destino, nVertice, mArestas, vertice; 
+    int op, origem, destino, nVertice, mArestas, vertice, linha; 
     
     Grafos *grafos = new Grafos();
     do{
@@ -33,22 +33,16 @@ int main(int argc, char const *argv[]){
 
             case 2:
                 cout << endl << "-------------------------------------------------------" << endl;
-                cout << "\t MAATRIZ DE ADJACÊNCIA" << endl;
+                cout << "\t MATRIZ DE ADJACÊNCIA" << endl;
                 cout << "-------------------------------------------------------" << endl;
-                if (nVertice == 0)
-                    cout << "NÃO FOI DEFINIDO NENHUM TIPO DE GRAFOS" << endl;
-                else
-                    //grafos->mostrarAdjacencia(nVertice);
+                grafos->matrizAdjacencia(linha);
                 break;
 
             case 3:
                 cout << endl << "-------------------------------------------------------" << endl;
                 cout << "\t MAATRIZ DIAGONAL" << endl;
                 cout << "-------------------------------------------------------" << endl;
-                if (nVertice == 0)
-                    cout << "NÃO FOI DEFINIDO NENHUM TIPO DE GRAFOS" << endl;
-                else
-                    //grafos->mostrarDiagonal(nVertice);
+                grafos->matrizDiagonal();
                 break;
 
             case 4:
