@@ -178,17 +178,17 @@ class Grafos{
 
         /*----------------------------FUNÇÃO PARA MOSTRAR VIZINHANÇA------------------------*/
         void vizinhancaVertice(int vertice){
-            int linha = 1;
+            int comp = 1;
             int vizinho;
             cout << endl << "-------------------------------------------------------"<< endl;
-            cout << "Vizinhos: ";
-            for(int x = 1; x <= nVertice; x++){
-                for(int y = 1; y <= nVertice; y++){
-                    if(matriz[x][y] == 1 && vertice == linha){
-                        cout << " " << y;
+            cout << "VIZINHOS: ";
+            for(int x = 0; x < nVertice; x++){
+                for(int y = 0; y < nVertice; y++){
+                    if(matriz[x][y] == -1 && vertice == comp){
+                        cout << " " << y+1;
                     }
                 }
-                linha++;        
+                comp++;        
             }
         };
     

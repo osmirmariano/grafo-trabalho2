@@ -77,10 +77,7 @@ int main(int argc, char const *argv[]){
                 cout << "-------------------------------------------------------" << endl;
                 cout << "INFORME O VÉRTICE QUE DESEJA SABER SUA VIZINHANÇA: " << endl;
                 cin >> vertice;
-                if (vertice > nVertice)
-                    cout << "O VALOR ULTRAPASSA O NÚMERO DE VÉRTICES!" << endl;
-                else
-                    //grafos->vizinhancaVertice(nVertice, vertice);
+                grafos->vizinhancaVertice(vertice);
                 break;                
 
             case 8:
