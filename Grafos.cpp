@@ -10,7 +10,7 @@ using namespace std;
 class Grafos{
 	public:
         int origem, destino, vertice, inicio, linha, mArestas, nVertice;
-        int matrix[0][0], **matriz, **matrizA, **matrizD;
+        int matrix[0][0], **matriz, **matrizA, **matrizD, **matrizI;
 
     public:
         //Construtor
@@ -84,7 +84,9 @@ class Grafos{
                 cout << endl;
                 nVertice++;
             }
+            cout << endl << "-------------------------------------------------------" << endl;
             cout << "NÚMERO DE VÉRTICES: " << nVertice << endl;
+            cout <<"-------------------------------------------------------" << endl;
         };
 
         /*------------------------FUNÇÃO PARA MOSTRAR AS ARESTAS----------------------*/
@@ -92,12 +94,16 @@ class Grafos{
             cout << "NÚMERO DE VÉRTICES: " << nVertice << endl;
             for(int x = 0; x < nVertice; x++){
                 for(int y = 0; y < nVertice; y++){
-                    if(matriz[x][y] == -1){
-                        cout << "(" << x+1 << ", " << y+1 << "); ";
-                        mArestas++;
-                    }                     
+                    if(matriz[y][x] == -1){
+                        if(matriz[x][y] == matriz[y][x]){
+                            mArestas++;
+                            cout << "(" << x+1 << ", " << y+1 << "); "; 
+                        }
+                    }    
+                                    
                 }
             }
+            cout << endl << "ARESTAS: " << (mArestas - nVertice) << endl;
             
         };
 
@@ -145,9 +151,16 @@ class Grafos{
 
         /*---------------------FUNÇÃO PARA MOSTRAR MATRIZ DE INCIDÊNCIA------------------*/
         void matrizIncidencia(){
+            //cout << "ARESTAS: " << mArestas << endl;
+            matrizI =  (int**)malloc(nVertice*sizeof(int*));
             for (int x = 0; x < nVertice; x++){
-                for (int y = 0; y < mArestas/2; y++){
-                    
+                matrizI[x] =  (int*)malloc(7*sizeof(int));
+                for (int y = 0; y < 7; y++){
+                    matrizI[x][y] = matriz[x][y];
+                    if(matrizI[x] == matrizI[y])
+                        matrizI[x][y] = 1;
+                    else
+                        matrizI[x][y] = 0;
                 }
                 cout << endl;
             }
@@ -180,16 +193,25 @@ class Grafos{
         void vizinhancaVertice(int vertice){
             int comp = 1;
             int vizinho;
-            cout << endl << "-------------------------------------------------------"<< endl;
-            cout << "VIZINHOS: ";
-            for(int x = 0; x < nVertice; x++){
-                for(int y = 0; y < nVertice; y++){
-                    if(matriz[x][y] == -1 && vertice == comp){
-                        cout << " " << y+1;
-                    }
-                }
-                comp++;        
+            if (vertice > nVertice){
+                cout << endl << "-------------------------------------------------------" << endl;
+                cout << "\t O VÉRTICE INFORMADO NÃO EXISTE" << endl;
+                cout << "-------------------------------------------------------" << endl;
             }
+            else{
+                cout << endl << "-------------------------------------------------------" << endl;
+                cout << "VIZINHOS: ";
+                for(int x = 0; x < nVertice; x++){
+                    for(int y = 0; y < nVertice; y++){
+                        if(matriz[x][y] == -1 && vertice == comp){
+                            cout << " " << y+1;
+                        }
+                    }
+                    comp++;        
+                }
+                cout << endl << "-------------------------------------------------------" << endl;
+            }
+            
         };
     
 };

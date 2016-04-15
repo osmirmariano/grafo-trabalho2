@@ -22,8 +22,9 @@ int main(int argc, char const *argv[]){
         cout << " 0 -- SAIR " << endl;
         cout << "-------------------------------------------------------" << endl;
         cout << "OPÇÃO: ";
-        cout << endl << "-------------------------------------------------------" << endl;
         cin >> op;
+        cout << "-------------------------------------------------------" << endl;
+        
 
         switch(op){
 
@@ -54,12 +55,9 @@ int main(int argc, char const *argv[]){
 
             case 5:
                 cout << endl << "-------------------------------------------------------" << endl;
-                cout << "\t MAATRIZ DE INCIDÊNCIA" << endl;
+                cout << "\t MATRIZ DE INCIDÊNCIA" << endl;
                 cout << "-------------------------------------------------------" << endl;
-                if (nVertice == 0)
-                    cout << "NÃO FOI DEFINIDO NENHUM TIPO DE GRAFOS" << endl;
-                else
-                    //grafos->mostrarIncidencia(nVertice, mArestas);
+                grafos->matrizIncidencia();
                 break;
 
             case 6:
