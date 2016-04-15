@@ -9,25 +9,23 @@ using namespace std;
 
 class Grafos{
 	public:
-        int origem, destino, vertice, inicio, linha, mArestas, nVertice;
+        int vertice, linha, mArestas, nVertice;
         int matrix[0][0], **matriz, **matrizA, **matrizD, **matrizI;
 
     public:
         //Construtor
         Grafos(){
         	//void grafo(int nVertice);
-        	void adicionarVertice(int nVertice);
+        	/*void adicionarVertice(int nVertice);
         	void adicionarAresta(int origem, int destino);
-            void matrizAdjacencia(int linha);
+            void matrizAdjacencia(int linha);*/
         };
 
-        Grafos(int origem, int destino, int nVertice){
-        	this->origem = origem;
-        	this->destino = destino;   	
-        	this->vertice = vertice;
-            linha = 0;
+        Grafos(int nVertice, int mArestas){ 
             this->mArestas = mArestas;
-            this->nVertice = nVertice;
+            this->nVertice = nVertice; 	
+        	this->vertice = vertice;
+            linha = 0;   
         };
 
         /*-------------------FUNÇÃO PARA SABER A QUANTIDADE DE LINHAS-------------*/
@@ -90,21 +88,20 @@ class Grafos{
         };
 
         /*------------------------FUNÇÃO PARA MOSTRAR AS ARESTAS----------------------*/
-        void mostrarArestas(){
+        int mostrarArestas(){
             cout << "NÚMERO DE VÉRTICES: " << nVertice << endl;
             for(int x = 0; x < nVertice; x++){
                 for(int y = 0; y < nVertice; y++){
                     if(matriz[y][x] == -1){
-                        if(matriz[x][y] == matriz[y][x]){
+                        if (x < y){
                             mArestas++;
                             cout << "(" << x+1 << ", " << y+1 << "); "; 
                         }
-                    }    
-                                    
+                    }                       
                 }
             }
-            cout << endl << "ARESTAS: " << (mArestas - nVertice) << endl;
-            
+            cout << endl << "ARESTAS: " << mArestas << endl;
+            return mArestas;
         };
 
         /*-------------------FUNÇÃO PARA MOSTRAR MATRIZ DE ADJACÊNCIA-----------------*/
@@ -151,16 +148,20 @@ class Grafos{
 
         /*---------------------FUNÇÃO PARA MOSTRAR MATRIZ DE INCIDÊNCIA------------------*/
         void matrizIncidencia(){
+            mostrarArestas();
             //cout << "ARESTAS: " << mArestas << endl;
+            cout << "VERTICES: " << nVertice << endl;
             matrizI =  (int**)malloc(nVertice*sizeof(int*));
             for (int x = 0; x < nVertice; x++){
-                matrizI[x] =  (int*)malloc(7*sizeof(int));
-                for (int y = 0; y < 7; y++){
+                cout << endl;
+                matrizI[x] =  (int*)malloc(mArestas*sizeof(int));
+                for (int y = 0; y < mArestas; y++){
                     matrizI[x][y] = matriz[x][y];
-                    if(matrizI[x] == matrizI[y])
+                    if(matrizI[x][y] == -1)
                         matrizI[x][y] = 1;
                     else
                         matrizI[x][y] = 0;
+                    cout << " " << matrizI[x][y] << " ";
                 }
                 cout << endl;
             }

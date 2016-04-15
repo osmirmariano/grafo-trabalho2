@@ -4,7 +4,7 @@
 using namespace std;
 
 int main(int argc, char const *argv[]){
-    int op, origem, destino, nVertice, mArestas, vertice, linha; 
+    int op, origem, destino, vertice, linha; 
     
     Grafos *grafos = new Grafos();
     do{
