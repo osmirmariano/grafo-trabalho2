@@ -9,8 +9,8 @@ using namespace std;
 
 class Grafos{
 	public:
-        int origem, destino, vertice, inicio, linha, recebe;
-        int matrix[0][0], **matriz;
+        int origem, destino, vertice, inicio, linha, mArestas, nVertice;
+        int matrix[0][0], **matriz, **matrizA, **matrizD;
 
     public:
         //Construtor
@@ -21,11 +21,13 @@ class Grafos{
             void matrizAdjacencia(int linha);
         };
 
-        Grafos(int origem, int destino, int vertice){
+        Grafos(int origem, int destino, int nVertice){
         	this->origem = origem;
         	this->destino = destino;   	
         	this->vertice = vertice;
             linha = 0;
+            this->mArestas = mArestas;
+            this->nVertice = nVertice;
         };
 
         /*-------------------FUNÇÃO PARA SABER A QUANTIDADE DE LINHAS-------------*/
@@ -76,41 +78,76 @@ class Grafos{
             for (int x = 0; x < linha; x++){
                 matriz[x] =  (int*)malloc(linha*sizeof(int));
                 for (int y = 0; y < linha; y++){
-                    //cout << " " << matrix[x][y] << " ";
                     matriz[x][y] = matrix[x][y];
                     cout << "  " << matriz[x][y];
                 }
                 cout << endl;
+                nVertice++;
             }
             cout << "POS [29][0]: " <<  matriz[29][0] << endl << endl;
+            cout << "NÚMERO DE VÉRTICES: " << nVertice << endl;
         };
 
 
-        
+        void mostrarArestas(){
+            cout << "NÚMERO DE VÉRTICES: " << nVertice << endl;
+            for(int x = 0; x < nVertice; x++){
+                for(int y = 0; y < nVertice; y++){
+                    if(matriz[x][y] == -1){
+                        cout << "(" << x+1 << ", " << y+1 << "); ";
+                        mArestas++;
+                    }                     
+                }
+            }
+            
+        };
 
         //Matriz Adjacencia
-        void matrizAdjacencia(int linha){
-            recebe = quantidade()/2;
-            for (int x = 0; x < recebe; x++){
-                for (int y = 0; y < recebe; y++){
-                    if (matriz[x][y] == -1)
-                        matriz[x][y] = 1;
+        void matrizAdjacencia(){
+            matrizA =  (int**)malloc(nVertice*sizeof(int*));
+            for (int x = 0; x < nVertice; x++){
+                matrizA[x] =  (int*)malloc(nVertice*sizeof(int));
+                for (int y = 0; y < nVertice; y++){
+                    matrizA[x][y] = matriz[x][y];
+                    if (matrizA[x][y] == -1)
+                        matrizA[x][y] = 1;
                     else
-                        matriz[x][y] = 0;
-                    cout << " " << matriz[x][y] << " ";
+                        matrizA[x][y] = 0;
+                    cout << " " << matrizA[x][y] << " ";
                 }
                 cout << endl;
             }
-
+            //cout << endl << "TOTAL DE ARESTAS: " << mArestas << endl;
         };
 
 
         void matrizDiagonal(){
-            for (int x = 0; x < linha; x++){
-                for (int y = 0; y < linha; y++){
+            matrizD =  (int**)malloc(nVertice*sizeof(int*));
+            for (int x = 0; x < nVertice; x++){
+                matrizD[x] =  (int*)malloc(nVertice*sizeof(int));
+                for (int y = 0; y < nVertice; y++){
+                    matrizD[x][y] = matriz[x][y];
                     if (x != y)
-                        matriz[x][y] = 0;
+                        matrizD[x][y] = 0;
+                    cout << " " << matrizD[x][y] << " ";
+                }
+                cout << endl;
+            }
+        };
+
+        void matrizLaplaciana(){
+            for (int x = 0; x < nVertice; x++){
+                for (int y = 0; y < nVertice; y++){
                     cout << " " << matriz[x][y] << " ";
+                }
+                cout << endl;
+            }
+        };
+
+        void matrizIncidencia(){
+            for (int x = 0; x < nVertice; x++){
+                for (int y = 0; y < mArestas; y++){
+                    
                 }
                 cout << endl;
             }

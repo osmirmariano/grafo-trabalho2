@@ -35,7 +35,7 @@ int main(int argc, char const *argv[]){
                 cout << endl << "-------------------------------------------------------" << endl;
                 cout << "\t MATRIZ DE ADJACÊNCIA" << endl;
                 cout << "-------------------------------------------------------" << endl;
-                grafos->matrizAdjacencia(linha);
+                grafos->matrizAdjacencia();
                 break;
 
             case 3:
@@ -59,10 +59,7 @@ int main(int argc, char const *argv[]){
                 cout << endl << "-------------------------------------------------------" << endl;
                 cout << "\t MAATRIZ LAPLACIANA" << endl;
                 cout << "-------------------------------------------------------" << endl;
-                if (nVertice == 0)
-                    cout << "\tNÃO FOI DEFINIDO NENHUM TIPO DE GRAFOS. DIGITE UM VALOR VÁLIDO!" << endl;
-                else
-                   //grafos->mostrarLaplaciana(nVertice);
+                grafos->matrizLaplaciana();
                 break;
 
             case 6:
@@ -89,6 +86,9 @@ int main(int argc, char const *argv[]){
                     //grafos->vizinhancaVertice(nVertice, vertice);
                 break;                
 
+            case 8:
+                grafos->mostrarArestas();   
+                break;
             case 0:
                 cout << "\t PROGRAMA ENCERRADO COM SUCESSO!\n \t VOLTE EM BREVE!" << endl;
                 break;
