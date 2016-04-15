@@ -79,6 +79,9 @@ int main(int argc, char const *argv[]){
                 break;                
 
             case 8:
+                cout << endl << "-------------------------------------------------------" << endl;
+                cout << "\t VIZUALIZAÇÃO DAS ARESTAS" << endl;
+                cout << "-------------------------------------------------------" << endl;
                 grafos->mostrarArestas();   
                 break;
             case 0:
