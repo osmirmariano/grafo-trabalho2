@@ -84,11 +84,10 @@ class Grafos{
                 cout << endl;
                 nVertice++;
             }
-            cout << "POS [29][0]: " <<  matriz[29][0] << endl << endl;
             cout << "NÚMERO DE VÉRTICES: " << nVertice << endl;
         };
 
-
+        /*------------------------FUNÇÃO PARA MOSTRAR AS ARESTAS----------------------*/
         void mostrarArestas(){
             cout << "NÚMERO DE VÉRTICES: " << nVertice << endl;
             for(int x = 0; x < nVertice; x++){
@@ -102,7 +101,7 @@ class Grafos{
             
         };
 
-        //Matriz Adjacencia
+        /*-------------------FUNÇÃO PARA MOSTRAR MATRIZ DE ADJACÊNCIA-----------------*/
         void matrizAdjacencia(){
             matrizA =  (int**)malloc(nVertice*sizeof(int*));
             for (int x = 0; x < nVertice; x++){
@@ -117,10 +116,9 @@ class Grafos{
                 }
                 cout << endl;
             }
-            //cout << endl << "TOTAL DE ARESTAS: " << mArestas << endl;
         };
 
-
+        /*-----------------------FUNÇÃO PARA MOSTRAR MATRIZ DIAGONAL--------------------*/
         void matrizDiagonal(){
             matrizD =  (int**)malloc(nVertice*sizeof(int*));
             for (int x = 0; x < nVertice; x++){
@@ -135,6 +133,7 @@ class Grafos{
             }
         };
 
+        /*---------------------FUNÇÃO PARA MOSTRAR MATRIZ LAPLACIANA--------------------*/
         void matrizLaplaciana(){
             for (int x = 0; x < nVertice; x++){
                 for (int y = 0; y < nVertice; y++){
@@ -144,12 +143,52 @@ class Grafos{
             }
         };
 
+        /*---------------------FUNÇÃO PARA MOSTRAR MATRIZ DE INCIDÊNCIA------------------*/
         void matrizIncidencia(){
             for (int x = 0; x < nVertice; x++){
-                for (int y = 0; y < mArestas; y++){
+                for (int y = 0; y < mArestas/2; y++){
                     
                 }
                 cout << endl;
+            }
+        };
+
+
+        /*-----------------------FUNÇÃO PARA MOSTRAR GRAU DO VÉRTICE----------------------*/
+        void grauVertice(int vertice){
+            int grau = 0;
+            if (vertice > nVertice){
+                cout << endl << "-------------------------------------------------------" << endl;
+                cout << "\t O VÉRTICE INFORMADO NÃO EXISTE" << endl;
+                cout << "-------------------------------------------------------" << endl;
+            }
+            else{
+                for (int x = 0; x < nVertice; x++){
+                    for (int y = 0; y < nVertice; y++){
+                        if(x == y && vertice == x+1)
+                            grau = matriz[x][y];
+                    }
+                }
+                cout << endl << "-------------------------------------------------------" << endl;
+                cout << " VÉRTICE " << vertice << " POSSUI GRAU " << grau << endl;
+                cout << "-------------------------------------------------------" << endl;
+            }
+            
+        };
+
+        /*----------------------------FUNÇÃO PARA MOSTRAR VIZINHANÇA------------------------*/
+        void vizinhancaVertice(int vertice){
+            int linha = 1;
+            int vizinho;
+            cout << endl << "-------------------------------------------------------"<< endl;
+            cout << "Vizinhos: ";
+            for(int x = 1; x <= nVertice; x++){
+                for(int y = 1; y <= nVertice; y++){
+                    if(matriz[x][y] == 1 && vertice == linha){
+                        cout << " " << y;
+                    }
+                }
+                linha++;        
             }
         };
     

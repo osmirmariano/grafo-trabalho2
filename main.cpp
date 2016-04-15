@@ -14,8 +14,8 @@ int main(int argc, char const *argv[]){
         cout << " 1 -- VISUALIZAR ARQUIVO " << endl;
         cout << " 2 -- VISUALIZAR MATRIZ DE ADJACÊNCIA " << endl;
         cout << " 3 -- VISUALIZAR MATRIZ DIAGONAL " << endl;
-        cout << " 4 -- VISUALIZAR MATRIZ DE INCIDÊNCIA " << endl;
-        cout << " 5 -- VISUALIZAR MATRIZ LAPLACIANA " << endl;
+        cout << " 4 -- VISUALIZAR MATRIZ LAPLACIANA " << endl;
+        cout << " 5 -- VISUALIZAR MATRIZ DE INCIDÊNCIA " << endl;
         cout << " 6 -- VISUALIZAR O GRAU DE UM VÉRTICE " << endl;
         cout << " 7 -- VISUALIZAR VIZINHANÇA DE UM VÉRTICE " << endl;
         cout << " 8 -- VISUALIZAR TODAS AS POSSIBILIDADE DE ARESTAS " << endl;
@@ -47,6 +47,13 @@ int main(int argc, char const *argv[]){
 
             case 4:
                 cout << endl << "-------------------------------------------------------" << endl;
+                cout << "\t MAATRIZ LAPLACIANA" << endl;
+                cout << "-------------------------------------------------------" << endl;
+                grafos->matrizLaplaciana();
+                break;
+
+            case 5:
+                cout << endl << "-------------------------------------------------------" << endl;
                 cout << "\t MAATRIZ DE INCIDÊNCIA" << endl;
                 cout << "-------------------------------------------------------" << endl;
                 if (nVertice == 0)
@@ -55,23 +62,13 @@ int main(int argc, char const *argv[]){
                     //grafos->mostrarIncidencia(nVertice, mArestas);
                 break;
 
-            case 5:
-                cout << endl << "-------------------------------------------------------" << endl;
-                cout << "\t MAATRIZ LAPLACIANA" << endl;
-                cout << "-------------------------------------------------------" << endl;
-                grafos->matrizLaplaciana();
-                break;
-
             case 6:
                 cout << endl << "-------------------------------------------------------" << endl;
                 cout << "\t GRAU DE VÉRTICE" << endl;
                 cout << "-------------------------------------------------------" << endl;
                 cout << "INFORME O VÉRTICE QUE DESEJA SABER SEU GRAU: " << endl;
                 cin >> vertice;
-                if (vertice > nVertice)
-                    cout << "\tNÃO FOI DEFINIDO NENHUM TIPO DE GRAFOS. DIGITE UM VALOR VÁLIDO!" << endl;
-                else
-                    //grafos->grauVertice(nVertice, vertice);
+                grafos->grauVertice(vertice);
                 break;
 
             case 7:
