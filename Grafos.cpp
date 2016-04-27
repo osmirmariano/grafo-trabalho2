@@ -15,6 +15,9 @@ class Grafos{
 
     public:
         //Construtor
+        Grafos(){
+        };
+
         Grafos(int nVertice){ 
             this->nVertice = nVertice; 	
             this->mArestas = mArestas;
@@ -103,25 +106,6 @@ class Grafos{
             cout <<"-------------------------------------------------------" << endl;
         };
 
-        /*---------------------FUNÇÃO PARA MOSTRAR OS VETORES DAS ARESTAS--------------------*/
-        void mostrarVetoresArestas(){
-            int k = 0;
-            vetorAresta1 = (int*) malloc(nVertice*sizeof(int));
-            vetorAresta2 = (int*) malloc(nVertice*sizeof(int));
-            for(int x = 0; x < nVertice; x++){
-                for(int y = 0; y < nVertice; y++){
-                    if(matriz[y][x] == -1){
-                        if (x < y){
-                            vetorAresta1[k] = x+1;
-                            vetorAresta2[k] = y+1;
-                            k++;
-                        }
-                    }                      
-                }
-            }
-            
-        };
-
         /*-----------------------FUNÇÃO CONTAR QUANTIDADE DE ARESTAS-------------------*/
         int quantidadeArestas(){
             int mArestas = 0;
@@ -181,10 +165,27 @@ class Grafos{
             }
         };
 
+        /*---------------------FUNÇÃO PARA MOSTRAR OS VETORES DAS ARESTAS--------------------*/
+        void mostrarVetoresArestas(){
+            int k = 0;
+            vetorAresta1 = (int*) malloc(nVertice*sizeof(int));
+            vetorAresta2 = (int*) malloc(nVertice*sizeof(int));
+            for(int x = 0; x < nVertice; x++){
+                for(int y = 0; y < nVertice; y++){
+                    if(matriz[y][x] == -1){
+                        if (x < y){
+                            vetorAresta1[k] = x+1;
+                            vetorAresta2[k] = y+1;
+                            k++;
+                        }
+                    }                      
+                }
+            }    
+        };
+
         /*---------------------FUNÇÃO PARA MOSTRAR MATRIZ DE INCIDÊNCIA------------------*/
         void matrizIncidencia(){
             mArestas = quantidadeArestas();
-            mostrarVetoresArestas();
             int  w = 0;
             matrizI = (int **) malloc(nVertice*sizeof(int*));
             for(int x = 1; x <= nVertice; x++){
@@ -198,8 +199,8 @@ class Grafos{
                     cout << "  " << matrizI[x][y];
                     w++;
                 }
-                w=0;
-                cout << " " << endl;
+                w = 0;
+                cout << "  " << endl;
             }   
         };
 
@@ -247,5 +248,7 @@ class Grafos{
                 }
                 cout << endl << "-------------------------------------------------------" << endl;
             }
+            
         };
+    
 };

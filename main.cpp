@@ -31,6 +31,7 @@ int main(int argc, char const *argv[]){
             case 1:
                 cout  << "ATENÇÃO! É permitido a leitura somente uma vez do arquivo" << endl;
                 grafos->arquivos();
+                grafos->mostrarVetoresArestas();
                 break;
 
             case 2:
