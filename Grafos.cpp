@@ -132,7 +132,7 @@ class Grafos{
                         matrizA[x][y] = 1;
                     else
                         matrizA[x][y] = 0;
-                    cout << "  " << matrizA[x][y] << " ";
+                    cout << " " << matrizA[x][y] << " ";
                 }
                 cout << endl;
             }
@@ -148,7 +148,7 @@ class Grafos{
                     matrizD[x][y] = matriz[x][y];
                     if (x != y)
                         matrizD[x][y] = 0;
-                    cout << "  " << matrizD[x][y] << " ";
+                    cout << " " << matrizD[x][y] << " ";
                 }
                 cout << endl;
             }
@@ -159,7 +159,7 @@ class Grafos{
             for (int x = 0; x < nVertice; x++){
                 cout << endl;
                 for (int y = 0; y < nVertice; y++){
-                    cout << "  " << matriz[x][y] << " ";
+                    cout << " " << matriz[x][y] << " ";
                 }
                 cout << endl;
             }
@@ -196,11 +196,11 @@ class Grafos{
                         matrizI[x][y] = 1;
                     else
                         matrizI[x][y] = 0;
-                    cout << "  " << matrizI[x][y];
+                    cout << " " << matrizI[x][y] << " ";
                     w++;
                 }
                 w = 0;
-                cout << "  " << endl;
+                cout << " " << endl;
             }   
         };
 
